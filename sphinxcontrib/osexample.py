@@ -7,11 +7,20 @@ import os
 from docutils.parsers.rst import Directive
 from docutils import nodes
 from sphinx.util.osutil import copyfile
+from pygments.lexer import RegexLexer, bygroups, include
+from pygments.token import *
+
 
 
 CSS_FILE = 'osexample.css'
 JS_FILE = 'osexample.js'
 
+
+class UbuntuLexer(UbuntuLexer):
+    name = 'Ubuntu'
+    aliases = ['ubuntu']
+
+    EXTRA_KEYWORDS = ['apt', 'apt install', 'apt-get', 'apt-get install']
 
 class ExampleCodeDirective(Directive):
     """
