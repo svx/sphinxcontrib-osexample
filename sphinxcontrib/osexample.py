@@ -4,23 +4,37 @@ Examplecode specs
 =================
 """
 import os
+import re
 from docutils.parsers.rst import Directive
 from docutils import nodes
 from sphinx.util.osutil import copyfile
-from pygments.lexer import RegexLexer, bygroups, include
-from pygments.token import *
+from sphinx.highlighting import lexers
+from pygments.lexer import RegexLexer, bygroups
+from pygments.lexers import get_lexer_by_name
+from pygments.token import Literal, Text, Operator, Keyword, Name, Number
+from pygments.util import ClassNotFound
 
 
 
 CSS_FILE = 'osexample.css'
 JS_FILE = 'osexample.js'
 
+class UbuntuLexer(RegexLexer):
+    """
+    Lexer for Ubuntu
+    """
 
-class UbuntuLexer(UbuntuLexer):
     name = 'Ubuntu'
     aliases = ['ubuntu']
 
-    EXTRA_KEYWORDS = ['apt', 'apt install', 'apt-get', 'apt-get install']
+    EXTRA_KEYWORDS = set(('apt', 'apt-get'))
+
+    def get_tokens_unprocessed(self, text):
+        for index, token, value in PythonLexer.get_tokens_unprocessed(self, text):
+            if token is Name and value in self.EXTRA_KEYWORDS:
+                yield index, Keyword.Pseudo, value
+            else:
+                yield index, token, value
 
 class ExampleCodeDirective(Directive):
     """
@@ -62,6 +76,10 @@ def copy_assets(app, exception):
 
 def setup(app):
     app.add_directive('example-code',  ExampleCodeDirective)
+    try:
+        get_lexer_by_name('ubuntu')
+    except ClassNotFound:
+        app.add_lexer('ubuntu', UbuntuLexer())
     app.connect('builder-inited', add_assets)
     app.connect('build-finished', copy_assets)
 
