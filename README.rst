@@ -21,3 +21,5 @@ It's intended to be used for displaying package manager examples.
 This extension adds the ``example-code`` directive which adds a class to
 a container wrapping the code blocks that should be folded. The class allows
 the included Javascript and CSS to render the folded block and buttons.
+
+
