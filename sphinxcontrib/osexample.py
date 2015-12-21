@@ -37,7 +37,7 @@ class UbuntuLexer(RegexLexer):
 
 class CentosLexer(RegexLexer):
     name = 'Centos'
-    aliases = ['centos']
+    aliases = ['centos', 'CentOS']
     filenames = ['*.ubuntu']
 
     tokens = {
@@ -116,6 +116,8 @@ def setup(app):
     try:
 	get_lexer_by_name('ubuntu')
 	get_lexer_by_name('fedora')
+	get_lexer_by_name('centos')
     except ClassNotFound:
-	app.add_lexer('ubuntu', UbuntuLexer())
-	app.add_lexer('fedora', FedoraLexer())
+	app.add_lexer('Ubuntu', UbuntuLexer())
+	app.add_lexer('Fedora', FedoraLexer())
+	app.add_lexer('CentOS', CentosLexer())
