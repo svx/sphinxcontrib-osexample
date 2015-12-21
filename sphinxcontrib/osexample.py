@@ -4,18 +4,76 @@ Examplecode specs
 =================
 """
 import os
+import re
 from docutils.parsers.rst import Directive
 from docutils import nodes
 from sphinx.util.osutil import copyfile
-
+from pygments.lexers import get_lexer_by_name
+from pygments.lexer import RegexLexer, bygroups
+from pygments.token import Keyword, Number, Text, Comment
+from pygments.util import ClassNotFound
+from sphinx.highlighting import lexers
 
 CSS_FILE = 'osexample.css'
 JS_FILE = 'osexample.js'
 
+__all__ = ['UbuntuLexer', 'CentosLexer', 'FedoraLexer']
+
+class UbuntuLexer(RegexLexer):
+    name = 'Ubuntu'
+    aliases = ['ubuntu']
+    filenames = ['*.ubuntu']
+
+    tokens = {
+        'root': [
+        (r'\bapt\b', Keyword),
+        (r'\b((apt-)?get\b)', Keyword),
+        (r'\s', Text),
+        (r'-', Text),
+        (r'\S+', Keyword.Pseudo),
+        (r'[;#].*', Comment.Single),
+        ],
+    }
+
+class CentosLexer(RegexLexer):
+    name = 'Centos'
+    aliases = ['centos']
+    filenames = ['*.ubuntu']
+
+    tokens = {
+        'root': [
+        (r'\byum\b', Keyword),
+        (r'\b((yum)?update\b)', Keyword),
+        (r'\b((yum)?install\b)', Keyword),
+        (r'\b((yum-)?check\b)', Keyword),
+        (r'\s', Text),
+        (r'-', Text),
+        (r'\S+', Keyword.Pseudo),
+        (r'[;#].*', Comment.Single),
+        ],
+    }
+
+class FedoraLexer(RegexLexer):
+    name = 'Fedora'
+    aliases = ['fedora']
+    filenames = ['*.ubuntu']
+
+    tokens = {
+        'root': [
+        (r'\bdnf\b', Keyword),
+        (r'\b((dnf)?update\b)', Keyword),
+        (r'\b((dnf)?install\b)', Keyword),
+        (r'\b((dnf-)?check\b)', Keyword),
+        (r'\s', Text),
+        (r'-', Text),
+        (r'\S+', Keyword.Pseudo),
+        (r'[;#].*', Comment.Single),
+        ],
+    }
 
 class ExampleCodeDirective(Directive):
     """
-    This directive is intended to be used to contain a group of 
+    This directive is intended to be used to contain a group of
     code blocks which are beingused to show OS examples for Ubuntu, Debian,
     Fedora, CentOS and OSX.
     When rendered as HTML the the examples will all be rolled up
@@ -55,4 +113,9 @@ def setup(app):
     app.add_directive('example-code',  ExampleCodeDirective)
     app.connect('builder-inited', add_assets)
     app.connect('build-finished', copy_assets)
-
+    try:
+	get_lexer_by_name('ubuntu')
+	get_lexer_by_name('fedora')
+    except ClassNotFound:
+	app.add_lexer('ubuntu', UbuntuLexer())
+	app.add_lexer('fedora', FedoraLexer())
