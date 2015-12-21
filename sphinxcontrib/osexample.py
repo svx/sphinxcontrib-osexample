@@ -73,7 +73,7 @@ class FedoraLexer(RegexLexer):
 
 class ExampleCodeDirective(Directive):
     """
-    This directive is intended to be used to contain a group of
+    This directive is intended to be used to contain a group of 
     code blocks which are beingused to show OS examples for Ubuntu, Debian,
     Fedora, CentOS and OSX.
     When rendered as HTML the the examples will all be rolled up
