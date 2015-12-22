@@ -36,3 +36,29 @@ Source would look something like this::
 
             sudo dnf install htop
 
+Installation
+------------
+
+t.b.c
+
+Documentation
+-------------
+
+Full documentation for end users can be found in the "docs" folder.
+
+Contribute
+----------
+
+- Issue Tracker: github.com/svx/sphinxcontrib-osexample/issues
+- Source Code: github.com/svx/sphinxcontrib-osexample
+
+Support
+-------
+
+If you are having issues, please let us know.
+
+
+License
+-------
+
+The project is licensed under BSD.
