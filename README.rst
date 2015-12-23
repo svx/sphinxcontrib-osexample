@@ -1,6 +1,9 @@
 .. -*- restructuredtext -*-
 
-:author: Sven Strack <sven@so36.net>
+.. image:: https://readthedocs.org/projects/sphinxcontrib-osexample/badge/?version=latest
+    :target: http://sphinxcontrib-osexample.readthedocs.org/en/latest/?badge=latest
+    :alt: Documentation Status
+
 
 ==============================
 osexample extension for Sphinx
@@ -45,6 +48,7 @@ Documentation
 -------------
 
 Full documentation for end users can be found in the "docs" folder.
+It is also available online on `Read The Docs <https://sphinxcontrib-osexample.readthedocs.org/en/latest/>`_
 
 Contribute
 ----------
