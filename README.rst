@@ -39,6 +39,13 @@ Source would look something like this::
 
             sudo dnf install htop
 
+
+This will create an output like this:
+
+.. image:: https://raw.githubusercontent.com/svx/sphinxcontrib-osexample/master/docs/_static/example.gif
+   :alt: Example how it looks like as generated HTML
+
+
 Installation
 ------------
 
@@ -48,6 +55,7 @@ Documentation
 -------------
 
 Full documentation for end users can be found in the "docs" folder.
+
 It is also available online on `Read The Docs <https://sphinxcontrib-osexample.readthedocs.org/en/latest/>`_
 
 Contribute
