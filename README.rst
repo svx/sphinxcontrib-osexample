@@ -61,8 +61,8 @@ It is also available online on `Read The Docs <https://sphinxcontrib-osexample.r
 Contribute
 ----------
 
-- Issue Tracker: github.com/svx/sphinxcontrib-osexample/issues
-- Source Code: github.com/svx/sphinxcontrib-osexample
+- `Issue Tracker <https://github.com/svx/sphinxcontrib-osexample/issues>`_
+- `Source Code <https://github.com/svx/sphinxcontrib-osexample>`_
 
 Support
 -------
