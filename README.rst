@@ -1,7 +1,7 @@
 .. -*- restructuredtext -*-
 
 .. image:: https://readthedocs.org/projects/sphinxcontrib-osexample/badge/?version=latest
-    :target: http://sphinxcontrib-osexample.readthedocs.org/en/latest/?badge=latest
+    :target: http://sphinxcontrib-osexample.readthedocs.org/en/latest/?badge=stable
     :alt: Documentation Status
 
 
