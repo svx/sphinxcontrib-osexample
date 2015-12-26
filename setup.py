@@ -20,6 +20,7 @@ setup(
     author='Sven Strack',
     author_email='sven@so36.net',
     description='Sphinx "osexample" extension',
+    keywords = "Sphinx extension",
     long_description=long_desc,
     zip_safe=False,
     classifiers=[
@@ -29,7 +30,7 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
-        'Programming Language :: Python',
+	'Programming Language :: Python :: 2.7',
         'Topic :: Documentation',
         'Topic :: Utilities',
     ],
