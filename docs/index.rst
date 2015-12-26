@@ -11,12 +11,11 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+Install
+-------
 
+.. code-block:: bash
 
-Indices and tables
-==================
+    $ pip install sphinxcontrib-osexample
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 

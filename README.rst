@@ -49,7 +49,9 @@ This will create an output like this:
 Installation
 ------------
 
-t.b.c
+.. code-block:: bash
+
+    $ sphinxcontrib-osexample
 
 Documentation
 -------------
