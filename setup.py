@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 long_desc = '''
 This package contains the osexample Sphinx extension.
 
-This extension adds support for a multiple language code block
+This extension adds support for Operating systems code block
 widget to Sphinx.
 '''
 
@@ -19,7 +19,7 @@ setup(
     license='BSD',
     author='Sven Strack',
     author_email='sven@so36.net',
-    description='Sphinx "osexample" extension',
+    description='Sphinx extension for OS code-blocks',
     keywords = "Sphinx extension",
     long_description=long_desc,
     zip_safe=False,
