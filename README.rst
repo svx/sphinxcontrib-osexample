@@ -51,7 +51,7 @@ Installation
 
 .. code-block:: bash
 
-    $ sphinxcontrib-osexample
+    $ pip install sphinxcontrib-osexample
 
 
 Enabling the extension in Sphinx
