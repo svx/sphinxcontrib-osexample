@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.1.1 (unreleased)
+0.1.1 (2016-01-15)
 ------------------
 
 - add basic homebrew lexer [svx]
