@@ -17,7 +17,7 @@ from sphinx.highlighting import lexers
 CSS_FILE = 'osexample.css'
 JS_FILE = 'osexample.js'
 
-__all__ = ['UbuntuLexer', 'CentosLexer', 'FedoraLexer']
+__all__ = ['UbuntuLexer', 'CentosLexer', 'FedoraLexer', 'OSXLexer']
 
 class UbuntuLexer(RegexLexer):
     name = 'Ubuntu'
@@ -38,7 +38,6 @@ class UbuntuLexer(RegexLexer):
 class CentosLexer(RegexLexer):
     name = 'Centos'
     aliases = ['centos', 'CentOS']
-    filenames = ['*.ubuntu']
 
     tokens = {
         'root': [
@@ -56,7 +55,6 @@ class CentosLexer(RegexLexer):
 class FedoraLexer(RegexLexer):
     name = 'Fedora'
     aliases = ['fedora']
-    filenames = ['*.ubuntu']
 
     tokens = {
         'root': [
@@ -71,9 +69,30 @@ class FedoraLexer(RegexLexer):
         ],
     }
 
+class OSXLexer(RegexLexer):
+    name = 'OSX'
+    aliases = ['osx']
+
+    tokens = {
+        'root': [
+        (r'\bbrew\b', Keyword),
+        (r'\b((brew)?install\b)', Keyword),
+        (r'\b((brew)?create\b)', Keyword),
+        (r'\b((brew)?edit\b)', Keyword),
+        (r'\b((brew)?update\b)', Keyword),
+        (r'\b((brew)?upgrade\b)', Keyword),
+        (r'\b((brew)?cleanup\b)', Keyword),
+        (r'\b((installer-)?pkg\b)', Keyword),
+        (r'\s', Text),
+        (r'-', Text),
+        (r'\S+', Keyword.Pseudo),
+        (r'[;#].*', Comment.Single),
+        ],
+    }
+
 class ExampleCodeDirective(Directive):
     """
-    This directive is intended to be used to contain a group of 
+    This directive is intended to be used to contain a group of
     code blocks which are beingused to show OS examples for Ubuntu, Debian,
     Fedora, CentOS and OSX.
     When rendered as HTML the the examples will all be rolled up
@@ -122,3 +141,4 @@ def setup(app):
 	app.add_lexer('Debian', UbuntuLexer())
 	app.add_lexer('Fedora', FedoraLexer())
 	app.add_lexer('CentOS', CentosLexer())
+    app.add_lexer('OSX', OSXLexer())

@@ -1,0 +1,30 @@
+Debian/Ubuntu
+=============
+
+apt-get
+apt
+apt install
+apt-get install
+
+CentOS
+=======
+
+yum
+yum install
+yum update
+yum check-update
+
+Fedora
+======
+
+dnf
+dnf install
+dnf update
+dnf check-update
+
+Homebrew
+========
+
+brew
+brew install
+brew update
