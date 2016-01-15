@@ -25,6 +25,8 @@ This extension adds the ``example-code`` directive which adds a class to
 a container wrapping the code blocks that should be folded. The class allows
 the included Javascript and CSS to render the folded block and buttons.
 
+Currently supported are: Debian, Ubuntu, Fedora, CentOS, OSX
+
 Quick Example
 -------------
 

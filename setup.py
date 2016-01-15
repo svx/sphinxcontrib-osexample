@@ -2,7 +2,11 @@
 
 from setuptools import setup, find_packages
 
-long_desc = '''
+def readme():
+    with open('README.rst') as f:
+        return f.read()
+
+'''
 This package contains the osexample Sphinx extension.
 
 This extension adds support for Operating systems code block
@@ -21,7 +25,7 @@ setup(
     author_email='sven@so36.net',
     description='Sphinx extension for OS code-blocks',
     keywords = "Sphinx extension",
-    long_description=long_desc,
+    long_description=readme(),
     zip_safe=False,
     classifiers=[
         'Development Status :: 4 - Beta',
