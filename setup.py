@@ -17,7 +17,7 @@ requires = ['Sphinx>=1.0']
 
 setup(
     name='sphinxcontrib-osexample',
-    version='0.1.1',
+    version='0.1.2.dev0',
     url='https://github.com/svx/sphinxcontrib-osexample',
     download_url='http://pypi.python.org/pypi/sphinxcontrib-osexample',
     license='BSD',
