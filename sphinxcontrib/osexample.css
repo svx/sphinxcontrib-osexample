@@ -28,3 +28,7 @@ ul.example-selector li.selected {
 ul.example-selector li.selected:hover {
     background-color: #333;
 }
+
+.example-code.container {
+    width: auto;
+}
