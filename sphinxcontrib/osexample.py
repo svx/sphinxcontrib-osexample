@@ -12,6 +12,7 @@ from pygments.lexers import get_lexer_by_name
 from pygments.lexer import RegexLexer, bygroups
 from pygments.token import Keyword, Number, Text, Comment
 from pygments.util import ClassNotFound
+from sphinx.highlighting import lexers
 
 
 CSS_FILE = 'osexample.css'
