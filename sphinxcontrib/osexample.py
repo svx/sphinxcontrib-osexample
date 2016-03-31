@@ -17,7 +17,28 @@ from sphinx.highlighting import lexers
 CSS_FILE = 'osexample.css'
 JS_FILE = 'osexample.js'
 
+__all__ = ['UbuntuLexer', 'CentosLexer', 'FedoraLexer', 'OSXLexer']
 
+class UbuntuLexer(RegexLexer):
+    name = 'Ubuntu'
+    aliases = ['ubuntu', 'debian', 'Debian']
+    filenames = ['*.ubuntu']
+
+
+class CentosLexer(RegexLexer):
+    name = 'Centos'
+    aliases = ['centos', 'CentOS']
+
+
+class FedoraLexer(RegexLexer):
+    name = 'Fedora'
+    aliases = ['fedora']
+
+
+class OSXLexer(RegexLexer):
+    name = 'OSX'
+    aliases = ['osx']
+   
 
 class ExampleCodeDirective(Directive):
     """
@@ -61,4 +82,13 @@ def setup(app):
     app.add_directive('example-code',  ExampleCodeDirective)
     app.connect('builder-inited', add_assets)
     app.connect('build-finished', copy_assets)
-  
+    try:
+	get_lexer_by_name('ubuntu')
+	get_lexer_by_name('fedora')
+	get_lexer_by_name('centos')
+    except ClassNotFound:
+	app.add_lexer('Ubuntu', UbuntuLexer())
+	app.add_lexer('Debian', UbuntuLexer())
+	app.add_lexer('Fedora', FedoraLexer())
+	app.add_lexer('CentOS', CentosLexer())
+    app.add_lexer('OSX', OSXLexer())
