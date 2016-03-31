@@ -14,7 +14,6 @@ from pygments.token import Keyword, Number, Text, Comment
 from pygments.util import ClassNotFound
 from sphinx.highlighting import lexers
 
-
 CSS_FILE = 'osexample.css'
 JS_FILE = 'osexample.js'
 
@@ -134,12 +133,12 @@ def setup(app):
     app.connect('builder-inited', add_assets)
     app.connect('build-finished', copy_assets)
     try:
-    get_lexer_by_name('ubuntu')
-    get_lexer_by_name('fedora')
-    get_lexer_by_name('centos')
+	get_lexer_by_name('ubuntu')
+	get_lexer_by_name('fedora')
+	get_lexer_by_name('centos')
     except ClassNotFound:
-    app.add_lexer('Ubuntu', UbuntuLexer())
-    app.add_lexer('Debian', UbuntuLexer())
-    app.add_lexer('Fedora', FedoraLexer())
-    app.add_lexer('CentOS', CentosLexer())
+	app.add_lexer('Ubuntu', UbuntuLexer())
+	app.add_lexer('Debian', UbuntuLexer())
+	app.add_lexer('Fedora', FedoraLexer())
+	app.add_lexer('CentOS', CentosLexer())
     app.add_lexer('OSX', OSXLexer())
