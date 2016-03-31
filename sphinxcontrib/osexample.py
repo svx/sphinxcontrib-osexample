@@ -10,6 +10,8 @@ from docutils import nodes
 from sphinx.util.osutil import copyfile
 from pygments.lexers import get_lexer_by_name
 from pygments.lexer import RegexLexer, bygroups
+from pygments.token import Keyword, Number, Text, Comment
+from pygments.util import ClassNotFound
 
 
 CSS_FILE = 'osexample.css'
@@ -22,21 +24,71 @@ class UbuntuLexer(RegexLexer):
     aliases = ['ubuntu', 'debian', 'Debian']
     filenames = ['*.ubuntu']
 
+    tokens = {
+        'root': [
+        (r'\bapt\b', Keyword),
+        (r'\b((apt-)?get\b)', Keyword),
+        (r'\s', Text),
+        (r'-', Text),
+        (r'\S+', Keyword.Pseudo),
+        (r'[;#].*', Comment.Single),
+        ],
+    }
 
 class CentosLexer(RegexLexer):
     name = 'Centos'
     aliases = ['centos', 'CentOS']
 
+    tokens = {
+        'root': [
+        (r'\byum\b', Keyword),
+        (r'\b((yum)?update\b)', Keyword),
+        (r'\b((yum)?install\b)', Keyword),
+        (r'\b((yum-)?check\b)', Keyword),
+        (r'\s', Text),
+        (r'-', Text),
+        (r'\S+', Keyword.Pseudo),
+        (r'[;#].*', Comment.Single),
+        ],
+    }
 
 class FedoraLexer(RegexLexer):
     name = 'Fedora'
     aliases = ['fedora']
 
+    tokens = {
+        'root': [
+        (r'\bdnf\b', Keyword),
+        (r'\b((dnf)?update\b)', Keyword),
+        (r'\b((dnf)?install\b)', Keyword),
+        (r'\b((dnf-)?check\b)', Keyword),
+        (r'\s', Text),
+        (r'-', Text),
+        (r'\S+', Keyword.Pseudo),
+        (r'[;#].*', Comment.Single),
+        ],
+    }
 
 class OSXLexer(RegexLexer):
     name = 'OSX'
     aliases = ['osx']
-   
+
+    tokens = {
+        'root': [
+        (r'\bbrew\b', Keyword),
+        (r'\b((brew)?install\b)', Keyword),
+        (r'\b((brew)?create\b)', Keyword),
+        (r'\b((brew)?edit\b)', Keyword),
+        (r'\b((brew)?update\b)', Keyword),
+        (r'\b((brew)?upgrade\b)', Keyword),
+        (r'\b((brew)?cleanup\b)', Keyword),
+        (r'\b((installer-)?pkg\b)', Keyword),
+        (r'\s', Text),
+        (r'-', Text),
+        (r'\S+', Keyword.Pseudo),
+        (r'[;#].*', Comment.Single),
+        ],
+    }
 
 class ExampleCodeDirective(Directive):
     """
@@ -81,12 +133,12 @@ def setup(app):
     app.connect('builder-inited', add_assets)
     app.connect('build-finished', copy_assets)
     try:
-	get_lexer_by_name('ubuntu')
-	get_lexer_by_name('fedora')
-	get_lexer_by_name('centos')
+    get_lexer_by_name('ubuntu')
+    get_lexer_by_name('fedora')
+    get_lexer_by_name('centos')
     except ClassNotFound:
-	app.add_lexer('Ubuntu', UbuntuLexer())
-	app.add_lexer('Debian', UbuntuLexer())
-	app.add_lexer('Fedora', FedoraLexer())
-	app.add_lexer('CentOS', CentosLexer())
+    app.add_lexer('Ubuntu', UbuntuLexer())
+    app.add_lexer('Debian', UbuntuLexer())
+    app.add_lexer('Fedora', FedoraLexer())
+    app.add_lexer('CentOS', CentosLexer())
     app.add_lexer('OSX', OSXLexer())
