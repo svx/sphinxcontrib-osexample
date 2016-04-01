@@ -26,8 +26,6 @@ class UbuntuLexer(RegexLexer):
 
     tokens = {
         'root': [
-        (r'\bapt\b', Keyword),
-        (r'\b((apt-)?get\b)', Keyword),
         (r'\s', Text),
         (r'-', Text),
         (r'\S+', Keyword.Pseudo),
@@ -41,10 +39,6 @@ class CentosLexer(RegexLexer):
 
     tokens = {
         'root': [
-        (r'\byum\b', Keyword),
-        (r'\b((yum)?update\b)', Keyword),
-        (r'\b((yum)?install\b)', Keyword),
-        (r'\b((yum-)?check\b)', Keyword),
         (r'\s', Text),
         (r'-', Text),
         (r'\S+', Keyword.Pseudo),
@@ -58,10 +52,6 @@ class FedoraLexer(RegexLexer):
 
     tokens = {
         'root': [
-        (r'\bdnf\b', Keyword),
-        (r'\b((dnf)?update\b)', Keyword),
-        (r'\b((dnf)?install\b)', Keyword),
-        (r'\b((dnf-)?check\b)', Keyword),
         (r'\s', Text),
         (r'-', Text),
         (r'\S+', Keyword.Pseudo),
@@ -75,14 +65,6 @@ class OSXLexer(RegexLexer):
 
     tokens = {
         'root': [
-        (r'\bbrew\b', Keyword),
-        (r'\b((brew)?install\b)', Keyword),
-        (r'\b((brew)?create\b)', Keyword),
-        (r'\b((brew)?edit\b)', Keyword),
-        (r'\b((brew)?update\b)', Keyword),
-        (r'\b((brew)?upgrade\b)', Keyword),
-        (r'\b((brew)?cleanup\b)', Keyword),
-        (r'\b((installer-)?pkg\b)', Keyword),
         (r'\s', Text),
         (r'-', Text),
         (r'\S+', Keyword.Pseudo),
